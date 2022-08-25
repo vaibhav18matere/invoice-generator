@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>INVOICE GENERATOR</h1>
+      <h1>Invoice Generator</h1>
     </div>
   );
 }
