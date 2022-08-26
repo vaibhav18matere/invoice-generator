@@ -1,15 +1,16 @@
 import React from "react";
 import "./CompanyDetails.css";
 
-const CompanyDetails = () => {
-     return (
-       <>
-         <section className="company-section">
-           <h4 className="hero-name">Lead Tronics</h4>
-           <p>Address:</p>
-         </section>
-       </>
-     );
+const CompanyDetails = ({ name, address, email }) => {
+  return (
+    <>
+      <section className="company-section">
+        <h2 className="hero-name">{name}</h2>
+        <p>{address}</p>
+        {/* <p>{email}</p> */}
+      </section>
+    </>
+  );
 };
 
 export default CompanyDetails;
