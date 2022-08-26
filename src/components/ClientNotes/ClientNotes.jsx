@@ -1,11 +1,11 @@
 import React from "react";
 import "./ClientNotes.css";
 
-const ClientNotes = () => {
+const ClientNotes = ({ invoiceNotes }) => {
   return (
     <>
       <section className="client-note">
-        <p>Notes for client</p>
+        <p>Additional notes : {invoiceNotes} </p>
       </section>
     </>
   );

@@ -1,14 +1,14 @@
 import React from "react";
 
-const ClientDetails = () => {
-     return (
-       <>
-         <section className="client-section">
-           <h4 className="hero-name">client name</h4>
-           <p>Client's address:</p>
-         </section>
-       </>
-     );
+const ClientDetails = ({ clientName, clientAddress }) => {
+  return (
+    <>
+      <section className="client-section">
+        <h4 className="hero-name">{clientName}</h4>
+        <p>{clientAddress}</p>
+      </section>
+    </>
+  );
 };
 
 export default ClientDetails;

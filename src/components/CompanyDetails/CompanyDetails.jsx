@@ -7,7 +7,6 @@ const CompanyDetails = ({ name, address, email }) => {
       <section className="company-section">
         <h2 className="hero-name">{name}</h2>
         <p>{address}</p>
-        {/* <p>{email}</p> */}
       </section>
     </>
   );
