@@ -1,4 +1,5 @@
 import React from "react";
+import "./InvoiceDetails.css";
 
 const InvoiceDetails = () => {
   return (

@@ -1,6 +1,7 @@
 import React from "react";
+import "./Header.css";
 
-const Header = () => {
+const Header = ({ printHandler }) => {
   return (
     <>
       <header className="main-invoice">
@@ -10,7 +11,9 @@ const Header = () => {
         <div>
           <ul className="header-section">
             <li>
-              <button className="btn btn-print">Print</button>
+              <button onClick={printHandler} className="btn btn-print">
+                Print
+              </button>
             </li>
             <li>
               <button className="btn btn-download">Download</button>
