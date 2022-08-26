@@ -1,0 +1,15 @@
+.invoice-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.invoice-section ul {
+  list-style-type: none;
+}
+
+.invoice-data {
+  font-weight: 700;
+}
