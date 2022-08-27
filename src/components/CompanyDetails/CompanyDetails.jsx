@@ -5,8 +5,8 @@ const CompanyDetails = ({ name, address, email }) => {
   return (
     <>
       <section className="company-section">
-        <h2 className="hero-name">{name}</h2>
-        <p>{address}</p>
+        <h4 className="hero-name">Company Name : {name}</h4>
+        <h6>Company Address :  {address}</h6>
       </section>
     </>
   );
