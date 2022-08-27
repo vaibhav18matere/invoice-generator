@@ -12,7 +12,7 @@ const InvoiceDetails = ({ invoiceNumber, invoiceDate, dueDate }) => {
             </span>
           </li>
           <li>
-            <span className="invoice-data">Invoice : {invoiceDate}</span>
+            <span className="invoice-data invoice-date">Invoice : {invoiceDate}</span>
           </li>
           <li>
             <span className="invoice-data">Invoice Due Date: {dueDate}</span>

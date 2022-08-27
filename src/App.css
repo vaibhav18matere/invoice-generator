@@ -6,9 +6,21 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
-@media(min-width: 1024px) {
+@media(min-width: 768px) {
   .main-container {
     max-width: 36rem;
+  }
+}
+
+@media(min-width: 1024px) {
+  .main-container {
+    max-width: 42rem;
+  }
+}
+
+@media(min-width: 1280px) {
+  .main-container {
+    max-width: 56rem;
   }
 }
 
