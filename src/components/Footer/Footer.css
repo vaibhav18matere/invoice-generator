@@ -4,6 +4,14 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding-top: 1.25rem;
+  border-top-width: 2px;
+  border-color: #D1D5DB;
+}
+
+.footer-section li {
+  margin: 0.5rem 0.2rem;
+  list-style-type: none;
 }
 
 .footer-data {

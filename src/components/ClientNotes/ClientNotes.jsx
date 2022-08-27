@@ -5,7 +5,7 @@ const ClientNotes = ({ invoiceNotes }) => {
   return (
     <>
       <section className="client-note">
-        <p>Additional notes : {invoiceNotes} </p>
+        <p className="client-msg">Additional notes : {invoiceNotes} </p>
       </section>
     </>
   );
