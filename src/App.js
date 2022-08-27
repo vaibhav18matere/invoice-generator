@@ -104,7 +104,7 @@ function App() {
                 value={clientAddress}
                 onChange={(e) => setClientAddress(e.target.value)}
               />
-              <label htmlFor="invoiceNumber">Enter invoice Number </label>
+              <label htmlFor="invoiceNumber">Enter Invoice Number </label>
               <input
                 type="number"
                 name="invoiceNumber"
@@ -114,7 +114,7 @@ function App() {
                 value={invoiceNumber}
                 onChange={(e) => setInvoiceNumber(e.target.value)}
               />
-              <label htmlFor="invoiceNotes">Enter invoice Notes </label>
+              <label htmlFor="invoiceNotes">Enter Invoice Notes </label>
               <input
                 type="text"
                 name="invoiceNotes"
@@ -134,7 +134,7 @@ function App() {
                 value={invoiceDate}
                 onChange={(e) => setInvoiceDate(e.target.value)}
               />
-              <label htmlFor="dueDate">Enter due Date </label>
+              <label htmlFor="dueDate">Enter Due Date </label>
               <input
                 type="date"
                 name="dueDate"
