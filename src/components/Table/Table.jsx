@@ -1,10 +1,31 @@
 import React from "react";
 import "./Table.css";
 
-const Table = () => {
+const Table = ({
+  material,
+  workHours,
+  workExpenses,
+  labourExpenses,
+  totalAmount,
+}) => {
   return (
     <>
-      <div className="section-table">THIS IS TABLE</div>
+      <table className="invoice-table">
+        <tr className="invoice-table-title">
+          <td className="table-title-item">Material</td>
+          <td className="table-title-item">Work hours</td>
+          <td className="table-title-item">Work expenses</td>
+          <td className="table-title-item">Labour expenses</td>
+          <td className="table-title-item">Total amount</td>
+        </tr>
+        <tr>
+          <td>{material}</td>
+          <td>{workHours} </td>
+          <td>{workExpenses}</td>
+          <td>{labourExpenses}</td>
+          <td>{totalAmount}</td>
+        </tr>
+      </table>
     </>
   );
 };

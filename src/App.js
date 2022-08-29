@@ -7,18 +7,24 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import InvoiceDetails from "./components/InvoiceDetails/InvoiceDetails";
 import Table from "./components/Table/Table";
+import TableForm from "./components/TableForm/TableForm";
 
 function App() {
-  const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
-  const [email, setEmail] = useState("");
-  const [showInvoice, setShowInvoice] = useState(false);
-  const [clientName, setClientName] = useState("");
-  const [clientAddress, setClientAddress] = useState("");
-  const [invoiceNumber, setInvoiceNumber] = useState("");
-  const [invoiceNotes, setInvoiceNotes] = useState("");
-  const [invoiceDate, setInvoiceDate] = useState("");
-  const [dueDate, setDueDate] = useState("");
+  const [name, setName] = useState("Vaibhav Matere");
+  const [address, setAddress] = useState("Nashik");
+  const [email, setEmail] = useState("vom18897@gmail.com");
+  const [showInvoice, setShowInvoice] = useState(true);
+  const [clientName, setClientName] = useState("Astitva Agro");
+  const [clientAddress, setClientAddress] = useState("Chinchkhed");
+  const [invoiceNumber, setInvoiceNumber] = useState("362574190");
+  const [invoiceNotes, setInvoiceNotes] = useState("Please pay fast");
+  const [invoiceDate, setInvoiceDate] = useState("28/08/2022");
+  const [dueDate, setDueDate] = useState("01/09/2022");
+  const [material, setMaterial] = useState("");
+  const [workHours, setWorkHours] = useState("");
+  const [workExpenses, setWorkExpenses] = useState("");
+  const [labourExpenses, setLabourExpenses] = useState("");
+  const [totalAmount, setTotalAmount] = useState("");
 
   const printHandler = () => {
     window.print();
@@ -39,7 +45,13 @@ function App() {
               invoiceDate={invoiceDate}
               dueDate={dueDate}
             />
-            <Table />
+            <Table
+              material={material}
+              workHours={workHours}
+              workExpenses={workExpenses}
+              labourExpenses={labourExpenses}
+              totalAmount={totalAmount}
+            />
             <ClientNotes invoiceNotes={invoiceNotes} />
             <Footer />
             <button
@@ -114,6 +126,21 @@ function App() {
                 value={invoiceNumber}
                 onChange={(e) => setInvoiceNumber(e.target.value)}
               />
+              {/* table form */}
+              <article>
+                <TableForm
+                  material={material}
+                  setMaterial={setMaterial}
+                  workHours={workHours}
+                  setWorkHours={setWorkHours}
+                  workExpenses={workExpenses}
+                  setWorkExpenses={setWorkExpenses}
+                  labourExpenses={labourExpenses}
+                  setLabourExpenses={setLabourExpenses}
+                  totalAmount={totalAmount}
+                  setTotalAmount={setTotalAmount}
+                />
+              </article>
               <label htmlFor="invoiceNotes">Enter Invoice Notes </label>
               <input
                 type="text"

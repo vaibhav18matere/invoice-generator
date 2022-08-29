@@ -1,4 +1,17 @@
 .section-table {
   margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 2.5rem; 
+}
+
+.invoice-table {
+  width: 100%;
+}
+
+.invoice-table-title {
+  background-color: #F3F4F6;
+  padding: 0.25rem; 
+}
+
+.table-title-item{
+  font-weight: 600;;
 }
