@@ -22,6 +22,7 @@ function App() {
   const [dueDate, setDueDate] = useState("01/09/2022");
   const [material, setMaterial] = useState("");
   const [workHours, setWorkHours] = useState("");
+  const [ratePerHour, setRatePerHour] = useState("");
   const [workExpenses, setWorkExpenses] = useState("");
   const [labourExpenses, setLabourExpenses] = useState("");
   const [totalAmount, setTotalAmount] = useState("");
@@ -48,6 +49,7 @@ function App() {
             <Table
               material={material}
               workHours={workHours}
+              ratePerHour={ratePerHour}
               workExpenses={workExpenses}
               labourExpenses={labourExpenses}
               totalAmount={totalAmount}
@@ -133,6 +135,8 @@ function App() {
                   setMaterial={setMaterial}
                   workHours={workHours}
                   setWorkHours={setWorkHours}
+                  ratePerHour={ratePerHour}
+                  setRatePerHour={setRatePerHour}
                   workExpenses={workExpenses}
                   setWorkExpenses={setWorkExpenses}
                   labourExpenses={labourExpenses}
