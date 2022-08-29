@@ -6,6 +6,8 @@ const TableForm = ({
   setMaterial,
   workHours,
   setWorkHours,
+  ratePerHour,
+  setRatePerHour,
   workExpenses,
   setWorkExpenses,
   labourExpenses,
@@ -15,10 +17,10 @@ const TableForm = ({
 }) => {
   useEffect(() => {
     const calculateTotalAmount = (totalAmount) => {
-      setTotalAmount(workExpenses * labourExpenses);
+      setTotalAmount(workHours * ratePerHour + workExpenses * labourExpenses);
     };
     calculateTotalAmount(totalAmount);
-  }, [labourExpenses, workExpenses, totalAmount]);
+  }, [workHours, ratePerHour, labourExpenses, workExpenses, totalAmount]);
 
   return (
     <>
@@ -43,6 +45,17 @@ const TableForm = ({
             placeholder="enter hours of work"
             value={workHours}
             onChange={(e) => setWorkHours(e.target.value)}
+          />
+        </div>
+        <div className="rate-per-hour">
+          <label htmlFor="rate-per-hour">Rate per hour</label>
+          <input
+            type="number"
+            name="rate-per-hour"
+            id="rate-per-hour"
+            placeholder="enter rate-per-hour"
+            value={ratePerHour}
+            onChange={(e) => setRatePerHour(e.target.value)}
           />
         </div>
         <div className="work-expenses">
