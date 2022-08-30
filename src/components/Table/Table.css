@@ -5,6 +5,8 @@
 
 .invoice-table {
   width: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .invoice-table-title {

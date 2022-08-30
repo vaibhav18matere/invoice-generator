@@ -18,14 +18,15 @@ function App() {
   const [clientAddress, setClientAddress] = useState("Chinchkhed");
   const [invoiceNumber, setInvoiceNumber] = useState("362574190");
   const [invoiceNotes, setInvoiceNotes] = useState("Please pay fast");
-  const [invoiceDate, setInvoiceDate] = useState("28/08/2022");
+  const [invoiceDate, setInvoiceDate] = useState("10/08/2022");
   const [dueDate, setDueDate] = useState("01/09/2022");
-  const [material, setMaterial] = useState("");
-  const [workHours, setWorkHours] = useState("");
-  const [ratePerHour, setRatePerHour] = useState("");
-  const [workExpenses, setWorkExpenses] = useState("");
-  const [labourExpenses, setLabourExpenses] = useState("");
+  const [material, setMaterial] = useState();
+  const [workHours, setWorkHours] = useState();
+  const [ratePerHour, setRatePerHour] = useState();
+  const [workExpenses, setWorkExpenses] = useState();
+  const [labourExpenses, setLabourExpenses] = useState();
   const [totalAmount, setTotalAmount] = useState("");
+  const [list, setList] = useState([]);
 
   const printHandler = () => {
     window.print();
@@ -143,6 +144,8 @@ function App() {
                   setLabourExpenses={setLabourExpenses}
                   totalAmount={totalAmount}
                   setTotalAmount={setTotalAmount}
+                  list={list}
+                  setList={setList}
                 />
               </article>
               <label htmlFor="invoiceNotes">Enter Invoice Notes </label>
