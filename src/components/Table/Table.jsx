@@ -2,12 +2,7 @@ import React from "react";
 import "./Table.css";
 
 const Table = ({
-  material,
-  workHours,
-  ratePerHour,
-  workExpenses,
-  labourExpenses,
-  totalAmount,
+  list
 }) => {
   return (
     <>
@@ -22,16 +17,30 @@ const Table = ({
             <td className="table-title-item">Total amount</td>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>{material}</td>
-            <td>{workHours} </td>
-            <td>{ratePerHour} </td>
-            <td>{workExpenses}</td>
-            <td>{labourExpenses}</td>
-            <td>{totalAmount}</td>
-          </tr>
-        </tbody>
+        {list.map(
+          ({
+            id,
+            material,
+            workHours,
+            ratePerHour,
+            workExpenses,
+            labourExpenses,
+            totalAmount,
+          }) => (
+            <React.Fragment key={id}>
+              <tbody>
+                <tr>
+                  <td>{material}</td>
+                  <td>{workHours} </td>
+                  <td>{ratePerHour} </td>
+                  <td>{workExpenses}</td>
+                  <td>{labourExpenses}</td>
+                  <td>{totalAmount}</td>
+                </tr>
+              </tbody>
+            </React.Fragment>
+          )
+        )}
       </table>
     </>
   );

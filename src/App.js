@@ -54,6 +54,8 @@ function App() {
               workExpenses={workExpenses}
               labourExpenses={labourExpenses}
               totalAmount={totalAmount}
+              list={list}
+              setList={setList}
             />
             <ClientNotes invoiceNotes={invoiceNotes} />
             <Footer />
