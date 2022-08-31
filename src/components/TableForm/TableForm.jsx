@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./TableForm.css";
 import { v4 as uuid } from "uuid";
-import { AiOutlineDelete } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
 const TableForm = ({
   material,
@@ -19,6 +19,8 @@ const TableForm = ({
   list,
   setList,
 }) => {
+  const [isEditing, setIsEditing] = useState(false);
+
   // To submit form
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,6 +51,18 @@ const TableForm = ({
   }, [workHours, ratePerHour, labourExpenses, workExpenses, totalAmount]);
 
   // To Edit invoice
+
+  const editInvoice = (id) => {
+    const editingInvoice = list.find((invoice) => invoice.id === id);
+    setList(list.filter((invoice) => invoice.id !== id));
+    setIsEditing(true);
+    setMaterial(editingInvoice.material);
+    setWorkHours(editingInvoice.workHours);
+    setRatePerHour(editingInvoice.ratePerHour);
+    setWorkExpenses(editingInvoice.workExpenses);
+    setLabourExpenses(editingInvoice.labourExpenses);
+    setTotalAmount(editingInvoice.totalAmount);
+  };
 
   // To Delete invoice
   const deleteInvoice = (id) =>
@@ -156,7 +170,12 @@ const TableForm = ({
                   <td>{totalAmount}</td>
                   <td>
                     <button onClick={() => deleteInvoice(id)}>
-                      <AiOutlineDelete className="delete-btn" />
+                      <AiOutlineDelete className="invoice-btn delete-btn" />
+                    </button>
+                  </td>
+                  <td>
+                    <button onClick={() => editInvoice(id)}>
+                      <AiOutlineEdit className="invoice-btn edit-btn" />
                     </button>
                   </td>
                 </tr>

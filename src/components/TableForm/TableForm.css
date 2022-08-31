@@ -15,11 +15,16 @@
      }
 }
 
-.delete-btn {
-     color: #EF4444;
+.invoice-btn{
      font-size: 1.25rem;
      line-height: 1.75rem;
      font-weight: 700;
-     background: none;
-     cursor: pointer;
+}
+
+.delete-btn {
+     color: #EF4444;
+}
+
+.edit-btn {
+     color: #10B981; 
 }
