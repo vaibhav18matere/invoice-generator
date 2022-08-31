@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./TableForm.css";
 import { v4 as uuid } from "uuid";
+import { AiOutlineDelete } from "react-icons/ai";
 
 const TableForm = ({
   material,
@@ -18,6 +19,7 @@ const TableForm = ({
   list,
   setList,
 }) => {
+  // To submit form
   const handleSubmit = (e) => {
     e.preventDefault();
     const newInvoice = {
@@ -38,13 +40,19 @@ const TableForm = ({
     setList([...list, newInvoice]);
     console.log(list);
   };
-
+  // To calculate total amount
   useEffect(() => {
     const calculateTotalAmount = (totalAmount) => {
       setTotalAmount(workHours * ratePerHour + workExpenses + labourExpenses);
     };
     calculateTotalAmount(totalAmount);
   }, [workHours, ratePerHour, labourExpenses, workExpenses, totalAmount]);
+
+  // To Edit invoice
+
+  // To Delete invoice
+  const deleteInvoice = (id) =>
+    setList(list.filter((invoice) => invoice.id !== id));
 
   return (
     <>
@@ -146,6 +154,11 @@ const TableForm = ({
                   <td>{workExpenses}</td>
                   <td>{labourExpenses}</td>
                   <td>{totalAmount}</td>
+                  <td>
+                    <button onClick={() => deleteInvoice(id)}>
+                      <AiOutlineDelete className="delete-btn" />
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </React.Fragment>

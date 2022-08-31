@@ -13,4 +13,13 @@
           display: grid;
           margin-top: 1.25rem;
      }
-} 
+}
+
+.delete-btn {
+     color: #EF4444;
+     font-size: 1.25rem;
+     line-height: 1.75rem;
+     font-weight: 700;
+     background: none;
+     cursor: pointer;
+}
