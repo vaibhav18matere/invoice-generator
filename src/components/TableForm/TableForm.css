@@ -1,0 +1,16 @@
+.material-name {
+     display: flex;
+     flex-direction: column;
+}
+
+.expenses {
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 2.5rem;
+}
+
+@media(min-width: 768px) {
+     .expenses {
+          display: grid;
+          margin-top: 1.25rem;
+     }
+} 
