@@ -6,7 +6,7 @@ const CompanyDetails = ({ name, address, email }) => {
     <>
       <section className="company-section">
         <h4 className="hero-name">Company Name : {name}</h4>
-        <h6>Company Address :  {address}</h6>
+        <h5>Company Address :  {address}</h5>
       </section>
     </>
   );

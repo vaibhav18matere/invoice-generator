@@ -5,7 +5,7 @@ const ClientDetails = ({ clientName, clientAddress }) => {
     <>
       <section className="client-section">
         <h4 className="hero-name">Client Name : {clientName}</h4>
-        <h6> Client Address : {clientAddress}</h6>
+        <h5> Client Address : {clientAddress}</h5>
       </section>
     </>
   );

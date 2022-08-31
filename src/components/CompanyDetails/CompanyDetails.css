@@ -8,7 +8,8 @@
 .hero-name {
   line-height: 1.75rem;
   text-transform: uppercase;
-  font-weight: 700;
+  font-weight: 500;
+  letter-spacing: 0.5px;;
 }
 
 @media (min-width: 768px) {

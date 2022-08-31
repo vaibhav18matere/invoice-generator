@@ -3,7 +3,9 @@
 }
 
 .hero-name {
-  font-size: 1.25rem;
   line-height: 1.75rem;
   text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  ;
 }

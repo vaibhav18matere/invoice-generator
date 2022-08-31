@@ -40,7 +40,7 @@ const TableForm = ({
     setLabourExpenses("");
     setTotalAmount("");
     setList([...list, newInvoice]);
-    console.log(list);
+    setIsEditing(false);
   };
   // To calculate total amount
   useEffect(() => {
@@ -133,7 +133,7 @@ const TableForm = ({
           </div>
         </div>
         <button className="check-invoice-btn" type="submit">
-          Add Invoive Item
+          {isEditing ? "Edit invoice" : "Add invoice"}
         </button>
       </form>
 
