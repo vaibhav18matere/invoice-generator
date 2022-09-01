@@ -15,7 +15,7 @@
      }
 }
 
-.invoice-btn{
+.invoice-btn {
      font-size: 1.25rem;
      line-height: 1.75rem;
      font-weight: 700;
@@ -26,5 +26,15 @@
 }
 
 .edit-btn {
-     color: #10B981; 
+     color: #10B981;
+}
+
+.total-amount-to-pay {
+     display: flex;
+     justify-content: flex-end;
+     align-items: flex-end;
+     color: #1F2937;
+     font-size: 1.5rem;
+     line-height: 2rem;
+     font-weight: 700;
 }
