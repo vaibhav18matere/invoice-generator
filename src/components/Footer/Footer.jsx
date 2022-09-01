@@ -11,14 +11,14 @@ const Footer = () => {
           </li>
           <li>
             <span className="footer-data">Email ID : </span>
-            accounts@leadtronix.com
+            accounts@invoicemaker.com
           </li>
           <li>
             <span className="footer-data">Bank Name : </span> ICICI Bank ltd.
           </li>
           <li>
             <span className="footer-data">Account holder Name : </span>
-            Leadtronix pvt. ltd.
+            Invoice generators pvt. ltd.
           </li>
           <li>
             <span className="footer-data">Account Number : </span> 1357902468169

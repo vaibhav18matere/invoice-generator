@@ -5,7 +5,7 @@ const Header = ({ printHandler }) => {
   return (
     <>
       <header className="main-invoice">
-        <div>
+        {/* <div>
           <h3 className="title">Invoice</h3>
         </div>
         <div>
@@ -22,7 +22,7 @@ const Header = ({ printHandler }) => {
               <button className="btn btn-send">Send E-mail</button>
             </li>
           </ul>
-        </div>
+        </div> */}
       </header>
     </>
   );

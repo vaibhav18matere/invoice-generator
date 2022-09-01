@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import ClientDetails from "./components/ClientDetails/ClientDetails";
 import ClientNotes from "./components/ClientNotes/ClientNotes";
@@ -8,18 +8,21 @@ import Header from "./components/Header/Header";
 import InvoiceDetails from "./components/InvoiceDetails/InvoiceDetails";
 import Table from "./components/Table/Table";
 import TableForm from "./components/TableForm/TableForm";
+import ReactToPrint from "react-to-print";
 
 function App() {
-  const [name, setName] = useState("Vaibhav Matere");
-  const [address, setAddress] = useState("Nashik");
-  const [email, setEmail] = useState("vpm18897@gmail.com");
-  const [showInvoice, setShowInvoice] = useState(true);
-  const [clientName, setClientName] = useState("Astitva Agro");
-  const [clientAddress, setClientAddress] = useState("Chinchkhed");
-  const [invoiceNumber, setInvoiceNumber] = useState("362574190");
-  const [invoiceNotes, setInvoiceNotes] = useState("Please pay fast");
-  const [invoiceDate, setInvoiceDate] = useState("10/08/2022");
-  const [dueDate, setDueDate] = useState("01/09/2022");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [showInvoice, setShowInvoice] = useState(false);
+  const [clientName, setClientName] = useState("");
+  const [clientAddress, setClientAddress] = useState("");
+  const [invoiceNumber, setInvoiceNumber] = useState("");
+  const [invoiceNotes, setInvoiceNotes] = useState(
+    "Please check all the details"
+  );
+  const [invoiceDate, setInvoiceDate] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [material, setMaterial] = useState();
   const [workHours, setWorkHours] = useState();
   const [ratePerHour, setRatePerHour] = useState();
@@ -28,6 +31,7 @@ function App() {
   const [totalAmount, setTotalAmount] = useState("");
   const [list, setList] = useState([]);
   const [totalAmountToPay, setTotalAmountToPay] = useState(0);
+  const componentRef = useRef();
 
   const printHandler = () => {
     window.print();
@@ -36,39 +40,47 @@ function App() {
     <>
       <main className="main-container">
         {showInvoice ? (
-          <div>
-            <Header printHandler={printHandler} />
-            <CompanyDetails name={name} address={address} email={email} />
-            <ClientDetails
-              clientName={clientName}
-              clientAddress={clientAddress}
+          <>
+            <ReactToPrint
+              trigger={() => (
+                <button className="btn-print">Print / Download</button>
+              )}
+              content={() => componentRef.current}
             />
-            <InvoiceDetails
-              invoiceNumber={invoiceNumber}
-              invoiceDate={invoiceDate}
-              dueDate={dueDate}
-            />
-            <Table
-              material={material}
-              workHours={workHours}
-              ratePerHour={ratePerHour}
-              workExpenses={workExpenses}
-              labourExpenses={labourExpenses}
-              totalAmount={totalAmount}
-              list={list}
-              setList={setList}
-              totalAmountToPay={totalAmountToPay}
-              setTotalAmountToPay={setTotalAmountToPay}
-            />
-            <ClientNotes invoiceNotes={invoiceNotes} />
-            <Footer />
+            <div ref={componentRef}>
+              <Header printHandler={printHandler} />
+              <CompanyDetails name={name} address={address} email={email} />
+              <ClientDetails
+                clientName={clientName}
+                clientAddress={clientAddress}
+              />
+              <InvoiceDetails
+                invoiceNumber={invoiceNumber}
+                invoiceDate={invoiceDate}
+                dueDate={dueDate}
+              />
+              <Table
+                material={material}
+                workHours={workHours}
+                ratePerHour={ratePerHour}
+                workExpenses={workExpenses}
+                labourExpenses={labourExpenses}
+                totalAmount={totalAmount}
+                list={list}
+                setList={setList}
+                totalAmountToPay={totalAmountToPay}
+                setTotalAmountToPay={setTotalAmountToPay}
+              />
+              <ClientNotes invoiceNotes={invoiceNotes} />
+              <Footer />
+            </div>
             <button
               className="check-invoice-btn"
               onClick={() => setShowInvoice(false)}
             >
               Edit Invoice Info
             </button>
-          </div>
+          </>
         ) : (
           <>
             <div className="alternative-container">
