@@ -11,16 +11,18 @@ import TableForm from "./components/TableForm/TableForm";
 import ReactToPrint from "react-to-print";
 
 function App() {
-  const [name, setName] = useState("Vaibhav Matere");
-  const [address, setAddress] = useState("Nashik");
-  const [email, setEmail] = useState("vpm18897@gmail.com");
-  const [showInvoice, setShowInvoice] = useState(true);
-  const [clientName, setClientName] = useState("Astitva Agro");
-  const [clientAddress, setClientAddress] = useState("Chinchkhed");
-  const [invoiceNumber, setInvoiceNumber] = useState("362574190");
-  const [invoiceNotes, setInvoiceNotes] = useState("Please pay fast");
-  const [invoiceDate, setInvoiceDate] = useState("10/08/2022");
-  const [dueDate, setDueDate] = useState("01/09/2022");
+  const [name, setName] = useState("");
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [showInvoice, setShowInvoice] = useState(false);
+  const [clientName, setClientName] = useState("");
+  const [clientAddress, setClientAddress] = useState("");
+  const [invoiceNumber, setInvoiceNumber] = useState("");
+  const [invoiceNotes, setInvoiceNotes] = useState(
+    "Please check all the details"
+  );
+  const [invoiceDate, setInvoiceDate] = useState("");
+  const [dueDate, setDueDate] = useState("");
   const [material, setMaterial] = useState();
   const [workHours, setWorkHours] = useState();
   const [ratePerHour, setRatePerHour] = useState();
