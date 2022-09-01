@@ -1,9 +1,13 @@
 import React from "react";
 import "./Table.css";
 
-const Table = ({
-  list
-}) => {
+const Table = ({ list, totalAmountToPay }) => {
+  // currency formatterfor Rupees
+  var formatter = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+  });
+
   return (
     <>
       <table className="invoice-table">
@@ -42,6 +46,11 @@ const Table = ({
           )
         )}
       </table>
+      <div>
+        <h2 className="total-amount-to-pay">
+          Total Amount : {formatter.format(totalAmountToPay)}
+        </h2>
+      </div>
     </>
   );
 };

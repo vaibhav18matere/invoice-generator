@@ -2,8 +2,8 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 2.5rem;
+  margin-bottom: 3.5rem;
 }
 
 .invoice-section ul {
@@ -12,9 +12,9 @@
 
 .invoice-data {
   font-weight: 700;
-  padding: 0.25rem; 
+  padding: 0.25rem;
 }
 
-.invoice-date{
-  background-color: #F3F4F6; 
+.invoice-date {
+  background-color: #F3F4F6;
 }

@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./TableForm.css";
 import { v4 as uuid } from "uuid";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
 const TableForm = ({
   material,
@@ -17,7 +18,12 @@ const TableForm = ({
   setTotalAmount,
   list,
   setList,
+  totalAmountToPay,
+  setTotalAmountToPay,
 }) => {
+  const [isEditing, setIsEditing] = useState(false);
+
+  // To submit form
   const handleSubmit = (e) => {
     e.preventDefault();
     const newInvoice = {
@@ -36,8 +42,10 @@ const TableForm = ({
     setLabourExpenses("");
     setTotalAmount("");
     setList([...list, newInvoice]);
-    console.log(list);
+    setIsEditing(false);
   };
+
+  // To calculate total amount
 
   useEffect(() => {
     const calculateTotalAmount = (totalAmount) => {
@@ -45,6 +53,45 @@ const TableForm = ({
     };
     calculateTotalAmount(totalAmount);
   }, [workHours, ratePerHour, labourExpenses, workExpenses, totalAmount]);
+
+  // To Calculate total amount to pay
+
+  useEffect(() => {
+    let rows = document.querySelectorAll(".amount");
+    let sum = 0;
+    for (let i = 0; i < rows.length; i++) {
+      if (rows[i].className === "amount") {
+        sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML);
+        setTotalAmountToPay(sum);
+      }
+    }
+  });
+
+  // currency formatter for Rupees
+
+  var formatter = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+  });
+
+  // To Edit invoice
+
+  const editInvoice = (id) => {
+    const editingInvoice = list.find((invoice) => invoice.id === id);
+    setList(list.filter((invoice) => invoice.id !== id));
+    setIsEditing(true);
+    setMaterial(editingInvoice.material);
+    setWorkHours(editingInvoice.workHours);
+    setRatePerHour(editingInvoice.ratePerHour);
+    setWorkExpenses(editingInvoice.workExpenses);
+    setLabourExpenses(editingInvoice.labourExpenses);
+    setTotalAmount(editingInvoice.totalAmount);
+  };
+
+  // To Delete invoice
+
+  const deleteInvoice = (id) =>
+    setList(list.filter((invoice) => invoice.id !== id));
 
   return (
     <>
@@ -111,11 +158,10 @@ const TableForm = ({
           </div>
         </div>
         <button className="check-invoice-btn" type="submit">
-          Add Invoive Item
+          {isEditing ? "Edit invoice" : "Add invoice"}
         </button>
       </form>
 
-      {/* table items */}
       <table className="invoice-table">
         <thead className="invoice-table-title">
           <tr>
@@ -145,13 +191,28 @@ const TableForm = ({
                   <td>{ratePerHour} </td>
                   <td>{workExpenses}</td>
                   <td>{labourExpenses}</td>
-                  <td>{totalAmount}</td>
+                  <td className="amount">{totalAmount}</td>
+                  <td>
+                    <button onClick={() => deleteInvoice(id)}>
+                      <AiOutlineDelete className="invoice-btn delete-btn" />
+                    </button>
+                  </td>
+                  <td>
+                    <button onClick={() => editInvoice(id)}>
+                      <AiOutlineEdit className="invoice-btn edit-btn" />
+                    </button>
+                  </td>
                 </tr>
               </tbody>
             </React.Fragment>
           )
         )}
       </table>
+      <div>
+        <h2 className="total-amount-to-pay">
+          Total Amount : {formatter.format(totalAmountToPay)}
+        </h2>
+      </div>
     </>
   );
 };

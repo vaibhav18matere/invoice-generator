@@ -1,9 +1,11 @@
 .client-section {
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 .hero-name {
-  font-size: 1.25rem;
   line-height: 1.75rem;
   text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
 }
