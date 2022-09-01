@@ -39,14 +39,14 @@ function App() {
   return (
     <>
       <main className="main-container">
-        <ReactToPrint
-          trigger={() => (
-            <button className="btn-print">Print / Download</button>
-          )}
-          content={() => componentRef.current}
-        />
         {showInvoice ? (
           <>
+            <ReactToPrint
+              trigger={() => (
+                <button className="btn-print">Print / Download</button>
+              )}
+              content={() => componentRef.current}
+            />
             <div ref={componentRef}>
               <Header printHandler={printHandler} />
               <CompanyDetails name={name} address={address} email={email} />
