@@ -18,6 +18,8 @@ const TableForm = ({
   setTotalAmount,
   list,
   setList,
+  totalAmountToPay,
+  setTotalAmountToPay,
 }) => {
   const [isEditing, setIsEditing] = useState(false);
 
@@ -42,13 +44,35 @@ const TableForm = ({
     setList([...list, newInvoice]);
     setIsEditing(false);
   };
+
   // To calculate total amount
+
   useEffect(() => {
     const calculateTotalAmount = (totalAmount) => {
       setTotalAmount(workHours * ratePerHour + workExpenses + labourExpenses);
     };
     calculateTotalAmount(totalAmount);
   }, [workHours, ratePerHour, labourExpenses, workExpenses, totalAmount]);
+
+  // To Calculate total amount to pay
+
+  useEffect(() => {
+    let rows = document.querySelectorAll(".amount");
+    let sum = 0;
+    for (let i = 0; i < rows.length; i++) {
+      if (rows[i].className === "amount") {
+        sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML);
+        setTotalAmountToPay(sum);
+      }
+    }
+  });
+
+  // currency formatter for Rupees
+
+  var formatter = new Intl.NumberFormat("en-IN", {
+    style: "currency",
+    currency: "INR",
+  });
 
   // To Edit invoice
 
@@ -65,6 +89,7 @@ const TableForm = ({
   };
 
   // To Delete invoice
+
   const deleteInvoice = (id) =>
     setList(list.filter((invoice) => invoice.id !== id));
 
@@ -137,7 +162,6 @@ const TableForm = ({
         </button>
       </form>
 
-      {/* table items */}
       <table className="invoice-table">
         <thead className="invoice-table-title">
           <tr>
@@ -167,7 +191,7 @@ const TableForm = ({
                   <td>{ratePerHour} </td>
                   <td>{workExpenses}</td>
                   <td>{labourExpenses}</td>
-                  <td>{totalAmount}</td>
+                  <td className="amount">{totalAmount}</td>
                   <td>
                     <button onClick={() => deleteInvoice(id)}>
                       <AiOutlineDelete className="invoice-btn delete-btn" />
@@ -184,6 +208,11 @@ const TableForm = ({
           )
         )}
       </table>
+      <div>
+        <h2 className="total-amount-to-pay">
+          Total Amount : {formatter.format(totalAmountToPay)}
+        </h2>
+      </div>
     </>
   );
 };

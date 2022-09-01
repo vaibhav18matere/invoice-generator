@@ -12,7 +12,7 @@ import TableForm from "./components/TableForm/TableForm";
 function App() {
   const [name, setName] = useState("Vaibhav Matere");
   const [address, setAddress] = useState("Nashik");
-  const [email, setEmail] = useState("vom18897@gmail.com");
+  const [email, setEmail] = useState("vpm18897@gmail.com");
   const [showInvoice, setShowInvoice] = useState(true);
   const [clientName, setClientName] = useState("Astitva Agro");
   const [clientAddress, setClientAddress] = useState("Chinchkhed");
@@ -27,6 +27,7 @@ function App() {
   const [labourExpenses, setLabourExpenses] = useState();
   const [totalAmount, setTotalAmount] = useState("");
   const [list, setList] = useState([]);
+  const [totalAmountToPay, setTotalAmountToPay] = useState(0);
 
   const printHandler = () => {
     window.print();
@@ -56,6 +57,8 @@ function App() {
               totalAmount={totalAmount}
               list={list}
               setList={setList}
+              totalAmountToPay={totalAmountToPay}
+              setTotalAmountToPay={setTotalAmountToPay}
             />
             <ClientNotes invoiceNotes={invoiceNotes} />
             <Footer />
@@ -131,7 +134,6 @@ function App() {
                 value={invoiceNumber}
                 onChange={(e) => setInvoiceNumber(e.target.value)}
               />
-              {/* table form */}
               <article>
                 <TableForm
                   material={material}
@@ -148,6 +150,8 @@ function App() {
                   setTotalAmount={setTotalAmount}
                   list={list}
                   setList={setList}
+                  totalAmountToPay={totalAmountToPay}
+                  setTotalAmountToPay={setTotalAmountToPay}
                 />
               </article>
               <label htmlFor="invoiceNotes">Enter Invoice Notes </label>
