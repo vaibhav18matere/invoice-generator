@@ -26,23 +26,28 @@ const TableForm = ({
   // To submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newInvoice = {
-      id: uuid(),
-      material,
-      workHours,
-      ratePerHour,
-      workExpenses,
-      labourExpenses,
-      totalAmount,
-    };
-    setMaterial("");
-    setWorkHours("");
-    setRatePerHour("");
-    setWorkExpenses("");
-    setLabourExpenses("");
-    setTotalAmount("");
-    setList([...list, newInvoice]);
-    setIsEditing(false);
+
+    if (!material || !workHours || !ratePerHour || !labourExpenses) {
+      alert("please fill all the fields!");
+    } else {
+      const newInvoice = {
+        id: uuid(),
+        material,
+        workHours,
+        ratePerHour,
+        workExpenses,
+        labourExpenses,
+        totalAmount,
+      };
+      setMaterial("");
+      setWorkHours("");
+      setRatePerHour("");
+      setWorkExpenses("");
+      setLabourExpenses("");
+      setTotalAmount("");
+      setList([...list, newInvoice]);
+      setIsEditing(false);
+    }
   };
 
   // To calculate total amount
