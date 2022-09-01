@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./App.css";
 import ClientDetails from "./components/ClientDetails/ClientDetails";
 import ClientNotes from "./components/ClientNotes/ClientNotes";
@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import InvoiceDetails from "./components/InvoiceDetails/InvoiceDetails";
 import Table from "./components/Table/Table";
 import TableForm from "./components/TableForm/TableForm";
+import ReactToPrint from "react-to-print";
 
 function App() {
   const [name, setName] = useState("Vaibhav Matere");
@@ -28,6 +29,7 @@ function App() {
   const [totalAmount, setTotalAmount] = useState("");
   const [list, setList] = useState([]);
   const [totalAmountToPay, setTotalAmountToPay] = useState(0);
+  const componentRef = useRef();
 
   const printHandler = () => {
     window.print();
@@ -35,40 +37,48 @@ function App() {
   return (
     <>
       <main className="main-container">
+        <ReactToPrint
+          trigger={() => (
+            <button className="btn-print">Print / Download</button>
+          )}
+          content={() => componentRef.current}
+        />
         {showInvoice ? (
-          <div>
-            <Header printHandler={printHandler} />
-            <CompanyDetails name={name} address={address} email={email} />
-            <ClientDetails
-              clientName={clientName}
-              clientAddress={clientAddress}
-            />
-            <InvoiceDetails
-              invoiceNumber={invoiceNumber}
-              invoiceDate={invoiceDate}
-              dueDate={dueDate}
-            />
-            <Table
-              material={material}
-              workHours={workHours}
-              ratePerHour={ratePerHour}
-              workExpenses={workExpenses}
-              labourExpenses={labourExpenses}
-              totalAmount={totalAmount}
-              list={list}
-              setList={setList}
-              totalAmountToPay={totalAmountToPay}
-              setTotalAmountToPay={setTotalAmountToPay}
-            />
-            <ClientNotes invoiceNotes={invoiceNotes} />
-            <Footer />
+          <>
+            <div ref={componentRef}>
+              <Header printHandler={printHandler} />
+              <CompanyDetails name={name} address={address} email={email} />
+              <ClientDetails
+                clientName={clientName}
+                clientAddress={clientAddress}
+              />
+              <InvoiceDetails
+                invoiceNumber={invoiceNumber}
+                invoiceDate={invoiceDate}
+                dueDate={dueDate}
+              />
+              <Table
+                material={material}
+                workHours={workHours}
+                ratePerHour={ratePerHour}
+                workExpenses={workExpenses}
+                labourExpenses={labourExpenses}
+                totalAmount={totalAmount}
+                list={list}
+                setList={setList}
+                totalAmountToPay={totalAmountToPay}
+                setTotalAmountToPay={setTotalAmountToPay}
+              />
+              <ClientNotes invoiceNotes={invoiceNotes} />
+              <Footer />
+            </div>
             <button
               className="check-invoice-btn"
               onClick={() => setShowInvoice(false)}
             >
               Edit Invoice Info
             </button>
-          </div>
+          </>
         ) : (
           <>
             <div className="alternative-container">
