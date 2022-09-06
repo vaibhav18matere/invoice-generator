@@ -1,4 +1,4 @@
-## Currency Converter
+## Invoice Generator
 - A small web app which generates invoice, shows status, sends email and alerts
 ### Upcoming features :
 - Shows invoice status (pending, successful, delay etc)
