@@ -19,7 +19,7 @@
   }
 }
 
-.footer-section {
+.company-details-section {
   list-style-type: none;
   display: flex;
   flex-wrap: wrap;
@@ -28,7 +28,7 @@
   border-color: #D1D5DB;
 }
 
-.footer-section li {
+.company-details-section li {
   margin: 0.5rem 0.2rem;
   list-style-type: none;
 }
