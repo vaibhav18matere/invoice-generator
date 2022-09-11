@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export const ClientDetails = ({ clientName, clientAddress, clientEmail }) => {
   const sendMailHandlerToast = () => {
-    toast("Email sent to user");
+    toast.success("Email sent to user");
   };
 
   return (
