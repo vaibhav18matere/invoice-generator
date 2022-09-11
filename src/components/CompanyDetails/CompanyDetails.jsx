@@ -1,34 +1,42 @@
 import React from "react";
 import "./CompanyDetails.css";
 
-const CompanyDetails = () => {
+const CompanyDetails = ({
+  name,
+  address,
+  email,
+  contactNum,
+  bankName,
+  accountHolderName,
+  accountNum,
+}) => {
   return (
     <>
       <div className="company-details-section">
         <ul>
           <li>
-            <span className="company-details-data">Name :</span> LeadTronix Pvt.
-            ltd.
+            Name : <span className="company-details-data"> {name}</span>
           </li>
           <li>
-            <span className="company-details-data">Phone No :</span>
-            0250-2536147
+            Email ID : <span className="company-details-data"> {email}</span>
           </li>
           <li>
-            <span className="company-details-data">Email ID : </span>
-            accounts@invoicemaker.com
+            Address : <span className="company-details-data"> {address}</span>
           </li>
           <li>
-            <span className="company-details-data">Bank Name : </span> ICICI
-            Bank ltd.
+            Contact No : 
+            <span className="company-details-data"> {contactNum}</span>
           </li>
           <li>
-            <span className="company-details-data">Account holder Name : </span>
-            LeadTronics Pvt. Ltd.
+            Bank Name : <span className="company-details-data"> {bankName}</span>
           </li>
           <li>
-            <span className="company-details-data">Account Number : </span>
-            1357902468169
+            Account holder Name :
+            <span className="company-details-data"> {accountHolderName}</span>
+          </li>
+          <li>
+            Account Number :
+            <span className="company-details-data"> {accountNum}</span>
           </li>
         </ul>
       </div>

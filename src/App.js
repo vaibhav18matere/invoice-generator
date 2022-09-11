@@ -13,9 +13,14 @@ function App() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
+  const [contactNum, setContactNum] = useState("");
+  const [bankName, setBankName] = useState("");
+  const [accountHolderName, setAccountHolderName] = useState("");
+  const [accountNum, setAccountNum] = useState("");
   const [showInvoice, setShowInvoice] = useState(false);
   const [clientName, setClientName] = useState("");
   const [clientAddress, setClientAddress] = useState("");
+  const [clientEmail, setClientEmail] = useState("");
   const [invoiceNumber, setInvoiceNumber] = useState("");
   const [invoiceNotes, setInvoiceNotes] = useState(
     "Please check all the details"
@@ -48,7 +53,15 @@ function App() {
             />
             <div ref={componentRef}>
               <Header printHandler={printHandler} />
-              <CompanyDetails name={name} address={address} />
+              <CompanyDetails
+                name={name}
+                email={email}
+                address={address}
+                contactNum={contactNum}
+                bankName={bankName}
+                accountHolderName={accountHolderName}
+                accountNum={accountNum}
+              />
               <InvoiceDetails
                 invoiceNumber={invoiceNumber}
                 invoiceDate={invoiceDate}
@@ -70,7 +83,7 @@ function App() {
               <ClientDetails
                 clientName={clientName}
                 clientAddress={clientAddress}
-                email={email}
+                clientEmail={clientEmail}
               />
             </div>
             <button
@@ -86,7 +99,7 @@ function App() {
               <label htmlFor="name">Enter Your Name </label>
               <input
                 type="text"
-                name="text"
+                name="name"
                 id="name"
                 placeholder="type your name"
                 autoComplete="off"
@@ -97,7 +110,7 @@ function App() {
               <label htmlFor="address">Enter Your Address </label>
               <input
                 type="text"
-                name="text"
+                name="address"
                 id="address"
                 placeholder="type your address"
                 autoComplete="off"
@@ -108,33 +121,90 @@ function App() {
               <label htmlFor="email">Enter Your Email </label>
               <input
                 type="email"
-                name="text"
+                name="email"
                 id="email"
                 placeholder="type your email"
                 autoComplete="off"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+
+              <label htmlFor="accountNum">Enter Your Contact No </label>
+              <input
+                type="number"
+                name="contactNum"
+                id="contactNum"
+                placeholder="type your contact number"
+                autoComplete="off"
+                value={contactNum}
+                onChange={(e) => setContactNum(e.target.value)}
+              />
+
+              <label htmlFor="bank-name">Enter Your Bank's Name </label>
+              <input
+                type="text"
+                name="bank-name"
+                id="bank-name"
+                placeholder="type your bank's name"
+                autoComplete="off"
+                value={bankName}
+                onChange={(e) => setBankName(e.target.value)}
+              />
+              <label htmlFor="acc-holder">Enter Account Holder's Name </label>
+              <input
+                type="text"
+                name="acc-holder"
+                id="acc-holder"
+                placeholder="type account holder's name"
+                autoComplete="off"
+                value={accountHolderName}
+                onChange={(e) => setAccountHolderName(e.target.value)}
+              />
+
+              <label htmlFor="accountNum">Enter Your Account No </label>
+              <input
+                type="number"
+                name="accountNum"
+                id="accountNum"
+                placeholder="type your account number"
+                autoComplete="off"
+                value={accountNum}
+                onChange={(e) => setAccountNum(e.target.value)}
+              />
+
               <label htmlFor="clientname">Enter Client's Name </label>
               <input
                 type="text"
-                name="text"
+                name="clientname"
                 id="clientname"
                 placeholder="type client's name"
                 autoComplete="off"
                 value={clientName}
                 onChange={(e) => setClientName(e.target.value)}
               />
+
               <label htmlFor="clientaddress">Enter Client's Address </label>
               <input
                 type="text"
-                name="text"
+                name="clientaddress"
                 id="clientaddress"
                 placeholder="type client's address"
                 autoComplete="off"
                 value={clientAddress}
                 onChange={(e) => setClientAddress(e.target.value)}
               />
+
+              <label htmlFor="clientEmail">Enter Client's Email ID </label>
+              <input
+                type="text"
+                name="clientEmail"
+                id="clientEmail"
+                placeholder="type client's email ID"
+                autoComplete="off"
+                value={clientEmail}
+                onChange={(e) => setClientEmail(e.target.value)}
+              />
+
               <label htmlFor="invoiceNumber">Enter Invoice Number </label>
               <input
                 type="number"
@@ -145,6 +215,7 @@ function App() {
                 value={invoiceNumber}
                 onChange={(e) => setInvoiceNumber(e.target.value)}
               />
+
               <article>
                 <TableForm
                   material={material}

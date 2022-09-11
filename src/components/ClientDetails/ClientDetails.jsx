@@ -1,21 +1,41 @@
 import React from "react";
 import "./ClientDetails.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ClientDetails = ({ clientName, clientAddress, email }) => {
-  const handleClientDetail = (e) => {
-    e.preventDefault();
+const ClientDetails = ({ clientName, clientAddress, clientEmail }) => {
+  const sendMailHandlerToast = () => {
+    toast("Email sent to user");
   };
 
   return (
-    <form className="client-section" onSubmit={handleClientDetail}>
-      <p>Client Name : {clientName}</p>
-      {/* <input type="text" id="client-name" name="client-name" /> */}
-      <p>Client Address : {clientAddress}</p>
-      {/* <input type="text" id="client-address" name="client-address" /> */}
-      <p for="email">Client's Email : {email}</p>
-      {/* <input type="email" id="email" name="email" /> */}
-      <button className="send-email">Send E-Mail</button>
-    </form>
+    <div className="client-section">
+      <p>
+        Client Name : <span className="client-data-input">{clientName}</span>
+      </p>
+      <p>
+        Client Address :{" "}
+        <span className="client-data-input">{clientAddress}</span>
+      </p>
+      <p>
+        Client's Email :{" "}
+        <span className="client-data-input">{clientEmail}</span>
+      </p>
+      <button className="send-email" onClick={sendMailHandlerToast}>
+        Send E-Mail to Client
+      </button>
+      <ToastContainer
+        position="top-right"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+    </div>
   );
 };
 
