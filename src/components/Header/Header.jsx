@@ -1,7 +1,7 @@
 import React from "react";
 import "./Header.css";
 
-const Header = () => {
+export const Header = () => {
   return (
     <>
       <header className="main-invoice">
@@ -14,5 +14,3 @@ const Header = () => {
     </>
   );
 };
-
-export default Header;

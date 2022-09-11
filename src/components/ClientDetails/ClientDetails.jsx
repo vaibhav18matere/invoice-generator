@@ -3,9 +3,9 @@ import "./ClientDetails.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const ClientDetails = ({ clientName, clientAddress, clientEmail }) => {
+export const ClientDetails = ({ clientName, clientAddress, clientEmail }) => {
   const sendMailHandlerToast = () => {
-    toast("Email sent to user");
+    toast.success("Email sent to user");
   };
 
   return (
@@ -26,6 +26,7 @@ const ClientDetails = ({ clientName, clientAddress, clientEmail }) => {
       </button>
       <ToastContainer
         position="top-right"
+        theme="colored"
         autoClose={2500}
         hideProgressBar={false}
         newestOnTop={false}
@@ -38,5 +39,3 @@ const ClientDetails = ({ clientName, clientAddress, clientEmail }) => {
     </div>
   );
 };
-
-export default ClientDetails;
