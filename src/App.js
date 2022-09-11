@@ -1,13 +1,22 @@
 import { useState, useRef } from "react";
 import "./App.css";
-import ClientDetails from "./components/ClientDetails/ClientDetails";
-import ClientNotes from "./components/ClientNotes/ClientNotes";
-import CompanyDetails from "./components/CompanyDetails/CompanyDetails";
-import Header from "./components/Header/Header";
-import InvoiceDetails from "./components/InvoiceDetails/InvoiceDetails";
-import Table from "./components/Table/Table";
-import TableForm from "./components/TableForm/TableForm";
+// import ClientDetails from "./components/ClientDetails/ClientDetails";
+// import ClientNotes from "./components/ClientNotes/ClientNotes";
+// import CompanyDetails from "./components/CompanyDetails/CompanyDetails";
+// import Header from "./components/Header/Header";
+// import InvoiceDetails from "./components/InvoiceDetails/InvoiceDetails";
+// import Table from "./components/Table/Table";
+// import TableForm from "./components/TableForm/TableForm";
 import ReactToPrint from "react-to-print";
+import {
+  ClientDetails,
+  ClientNotes,
+  CompanyDetails,
+  Header,
+  InvoiceDetails,
+  Table,
+  TableForm,
+} from "./components";
 
 function App() {
   const [name, setName] = useState("");

@@ -1,7 +1,7 @@
 import React from "react";
 import "./InvoiceDetails.css";
 
-const InvoiceDetails = ({ invoiceNumber, invoiceDate, dueDate }) => {
+export const InvoiceDetails = ({ invoiceNumber, invoiceDate, dueDate }) => {
   return (
     <>
       <article className="invoice-section">
@@ -22,5 +22,3 @@ const InvoiceDetails = ({ invoiceNumber, invoiceDate, dueDate }) => {
     </>
   );
 };
-
-export default InvoiceDetails;

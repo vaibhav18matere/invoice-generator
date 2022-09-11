@@ -1,7 +1,7 @@
 import React from "react";
 import "./ClientNotes.css";
 
-const ClientNotes = ({ invoiceNotes }) => {
+export const ClientNotes = ({ invoiceNotes }) => {
   return (
     <>
       <section className="client-note">
@@ -10,5 +10,3 @@ const ClientNotes = ({ invoiceNotes }) => {
     </>
   );
 };
-
-export default ClientNotes;

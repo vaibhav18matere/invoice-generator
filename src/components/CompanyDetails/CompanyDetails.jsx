@@ -1,7 +1,7 @@
 import React from "react";
 import "./CompanyDetails.css";
 
-const CompanyDetails = ({
+export const CompanyDetails = ({
   name,
   address,
   email,
@@ -43,5 +43,3 @@ const CompanyDetails = ({
     </>
   );
 };
-
-export default CompanyDetails;

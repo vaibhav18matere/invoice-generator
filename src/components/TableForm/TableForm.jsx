@@ -4,7 +4,7 @@ import { v4 as uuid } from "uuid";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
 
-const TableForm = ({
+export const TableForm = ({
   material,
   setMaterial,
   workHours,
@@ -229,5 +229,3 @@ const TableForm = ({
     </>
   );
 };
-
-export default TableForm;

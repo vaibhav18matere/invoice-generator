@@ -1,7 +1,7 @@
 import React from "react";
 import "./Table.css";
 
-const Table = ({ list, totalAmountToPay }) => {
+export const Table = ({ list, totalAmountToPay }) => {
   // currency formatter for Rupees
 
   var formatter = new Intl.NumberFormat("en-IN", {
@@ -55,5 +55,3 @@ const Table = ({ list, totalAmountToPay }) => {
     </>
   );
 };
-
-export default Table;
