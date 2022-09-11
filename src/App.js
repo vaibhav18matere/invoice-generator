@@ -3,7 +3,6 @@ import "./App.css";
 import ClientDetails from "./components/ClientDetails/ClientDetails";
 import ClientNotes from "./components/ClientNotes/ClientNotes";
 import CompanyDetails from "./components/CompanyDetails/CompanyDetails";
-import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import InvoiceDetails from "./components/InvoiceDetails/InvoiceDetails";
 import Table from "./components/Table/Table";
@@ -49,11 +48,7 @@ function App() {
             />
             <div ref={componentRef}>
               <Header printHandler={printHandler} />
-              <CompanyDetails name={name} address={address} email={email} />
-              <ClientDetails
-                clientName={clientName}
-                clientAddress={clientAddress}
-              />
+              <CompanyDetails name={name} address={address} />
               <InvoiceDetails
                 invoiceNumber={invoiceNumber}
                 invoiceDate={invoiceDate}
@@ -72,10 +67,14 @@ function App() {
                 setTotalAmountToPay={setTotalAmountToPay}
               />
               <ClientNotes invoiceNotes={invoiceNotes} />
-              <Footer />
+              <ClientDetails
+                clientName={clientName}
+                clientAddress={clientAddress}
+                email={email}
+              />
             </div>
             <button
-              className="check-invoice-btn"
+              className="add-invoice-btn"
               onClick={() => setShowInvoice(false)}
             >
               Edit Invoice Info
@@ -197,8 +196,8 @@ function App() {
                 onChange={(e) => setDueDate(e.target.value)}
               />
               <button
-                onClick={() => setShowInvoice(true)}
                 className="check-invoice-btn"
+                onClick={() => setShowInvoice(true)}
               >
                 Check Invoice
               </button>

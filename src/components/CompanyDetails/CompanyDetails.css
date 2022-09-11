@@ -18,3 +18,21 @@
     line-height: 2.5rem;
   }
 }
+
+.company-details-section {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: flex-end;
+  border-color: #D1D5DB;
+}
+
+.company-details-section li {
+  margin: 0.5rem 0.2rem;
+  list-style-type: none;
+}
+
+.footer-data {
+  font-weight: 600;
+}

@@ -3,6 +3,7 @@ import "./TableForm.css";
 import { v4 as uuid } from "uuid";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
+
 const TableForm = ({
   material,
   setMaterial,
@@ -57,7 +58,14 @@ const TableForm = ({
       setTotalAmount(workHours * ratePerHour + workExpenses + labourExpenses);
     };
     calculateTotalAmount(totalAmount);
-  }, [workHours, ratePerHour, labourExpenses, workExpenses, totalAmount]);
+  }, [
+    workHours,
+    ratePerHour,
+    labourExpenses,
+    workExpenses,
+    totalAmount,
+    setTotalAmount,
+  ]);
 
   // To Calculate total amount to pay
 
@@ -100,7 +108,7 @@ const TableForm = ({
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className="invoice-data-form" onSubmit={handleSubmit}>
         <div className="material-name">
           <label htmlFor="material">Material Name</label>
           <input
@@ -162,7 +170,7 @@ const TableForm = ({
             <p>{totalAmount}</p>
           </div>
         </div>
-        <button className="check-invoice-btn" type="submit">
+        <button className="add-invoice-btn" type="submit">
           {isEditing ? "Edit invoice" : "Add invoice"}
         </button>
       </form>
@@ -170,7 +178,7 @@ const TableForm = ({
       <table className="invoice-table">
         <thead className="invoice-table-title">
           <tr>
-            <td className="table-title-item">Material</td>
+            <td className="table-title-item">Material Name</td>
             <td className="table-title-item">Work hours</td>
             <td className="table-title-item">Rate per hour</td>
             <td className="table-title-item">Work expenses</td>
@@ -199,12 +207,12 @@ const TableForm = ({
                   <td className="amount">{totalAmount}</td>
                   <td>
                     <button onClick={() => deleteInvoice(id)}>
-                      <AiOutlineDelete className="invoice-btn delete-btn" />
+                      <AiOutlineDelete className="invoice-icon delete-icon" />
                     </button>
                   </td>
                   <td>
                     <button onClick={() => editInvoice(id)}>
-                      <AiOutlineEdit className="invoice-btn edit-btn" />
+                      <AiOutlineEdit className="invoice-icon edit-icon" />
                     </button>
                   </td>
                 </tr>

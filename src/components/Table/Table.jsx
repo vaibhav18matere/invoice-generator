@@ -2,7 +2,8 @@ import React from "react";
 import "./Table.css";
 
 const Table = ({ list, totalAmountToPay }) => {
-  // currency formatterfor Rupees
+  // currency formatter for Rupees
+
   var formatter = new Intl.NumberFormat("en-IN", {
     style: "currency",
     currency: "INR",
@@ -13,7 +14,7 @@ const Table = ({ list, totalAmountToPay }) => {
       <table className="invoice-table">
         <thead className="invoice-table-title">
           <tr>
-            <td className="table-title-item">Material</td>
+            <td className="table-title-item">Material Name</td>
             <td className="table-title-item">Work hours</td>
             <td className="table-title-item">Rate per hour</td>
             <td className="table-title-item">Work expenses</td>

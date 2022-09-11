@@ -15,17 +15,17 @@
      }
 }
 
-.invoice-btn {
+.invoice-icon {
      font-size: 1.25rem;
      line-height: 1.75rem;
      font-weight: 700;
 }
 
-.delete-btn {
+.delete-icon {
      color: #EF4444;
 }
 
-.edit-btn {
+.edit-icon {
      color: #10B981;
 }
 
@@ -37,4 +37,23 @@
      font-size: 1.5rem;
      line-height: 2rem;
      font-weight: 700;
+}
+
+.invoice-data-form{
+     border-style: inset;
+     border-width: 0.5px;
+}
+
+.material-name, .expenses{
+     margin: 1rem;
+}
+
+.add-invoice-btn {
+  margin: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3B82F6;
+  color: #ffffff;
+  letter-spacing: 1px;
+  font-weight: 700;
+  border-radius: 0.4rem;
 }
