@@ -7,11 +7,18 @@
 }
 
 .client-section {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   align-content: stretch;
   justify-content: flex-start;
   align-items: stretch;
+}
+.company-details-data{
+  font-weight: 700;
+}
+
+.client-data-input{
+  font-weight: 700;
 }
