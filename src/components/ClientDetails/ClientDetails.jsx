@@ -26,6 +26,7 @@ export const ClientDetails = ({ clientName, clientAddress, clientEmail }) => {
       </button>
       <ToastContainer
         position="top-right"
+        theme="colored"
         autoClose={2500}
         hideProgressBar={false}
         newestOnTop={false}

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "./TableForm.css";
 import { v4 as uuid } from "uuid";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const TableForm = ({
   material,
@@ -27,9 +28,8 @@ export const TableForm = ({
   // To submit form
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (!material || !workHours || !ratePerHour || !labourExpenses) {
-      alert("please fill all the fields!");
+      toast.error("Please fill in all inputs");
     } else {
       const newInvoice = {
         id: uuid(),
@@ -108,6 +108,18 @@ export const TableForm = ({
 
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        theme="colored"
+        autoClose={2500}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <form className="invoice-data-form" onSubmit={handleSubmit}>
         <div className="material-name">
           <label htmlFor="material">Material Name</label>
