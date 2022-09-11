@@ -1,13 +1,21 @@
 import React from "react";
+import "./ClientDetails.css";
 
-const ClientDetails = ({ clientName, clientAddress }) => {
+const ClientDetails = ({ clientName, clientAddress, email }) => {
+  const handleClientDetail = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <>
-      <section className="client-section">
-        <h4 className="hero-name">Client Name : {clientName}</h4>
-        <h5> Client Address : {clientAddress}</h5>
-      </section>
-    </>
+    <form className="client-section" onSubmit={handleClientDetail}>
+      <p>Client Name : {clientName}</p>
+      {/* <input type="text" id="client-name" name="client-name" /> */}
+      <p>Client Address : {clientAddress}</p>
+      {/* <input type="text" id="client-address" name="client-address" /> */}
+      <p for="email">Client's Email : {email}</p>
+      {/* <input type="email" id="email" name="email" /> */}
+      <button className="send-email">Send E-Mail</button>
+    </form>
   );
 };
 

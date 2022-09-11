@@ -15,7 +15,7 @@ const InvoiceDetails = ({ invoiceNumber, invoiceDate, dueDate }) => {
             <span className="invoice-data invoice-date">Invoice Date : {invoiceDate}</span>
           </li>
           <li>
-            <span className="invoice-data">Invoice Due Date: {dueDate}</span>
+            <span className="invoice-data">Due Date: {dueDate}</span>
           </li>
         </ul>
       </article>
