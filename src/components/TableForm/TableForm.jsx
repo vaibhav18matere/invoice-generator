@@ -54,8 +54,8 @@ export const TableForm = ({
   // To calculate total amount
 
   useEffect(() => {
-    const calculateTotalAmount = (totalAmount) => {
-      setTotalAmount(workHours * ratePerHour + workExpenses + labourExpenses);
+    const calculateTotalAmount = () => {
+      setTotalAmount(workHours * ratePerHour + Number(workExpenses) + Number(labourExpenses));
     };
     calculateTotalAmount(totalAmount);
   }, [
